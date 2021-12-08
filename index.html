@@ -3,16 +3,13 @@
 <head>
 
 <title> IDEa </title>
-
-<script src="lib/codemirror.js"></script>
-<link rel="stylesheet" href="lib/codemirror.css">
-<script src="mode-java/javascript.js"></script>
-
-    <script type="text/javascript"> var myCodeMirror = CodeMirror.fromTextArea(mainCode); </script>
-
+<style>
+  .CodeMirror { float: right }
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../theme/3024-night.css">
 
 <div height="20%" style="font-family: Roboto">
 
@@ -29,7 +26,24 @@
 </head>
 
 <body>
+<textarea id="fcode" align="right" style="width: 80%;">
 
-    <textarea id="mainCode"></textarea>
+</textarea>
+    <link rel="stylesheet" href="lib/codemirror.css">
+    <script src="lib/codemirror.js"></script>
+    <script src="mode/clike/clike.js"></script>
+    <script src="addon/scroll/scrollpastend.js"></script>
+    <script src="addon/edit/closebrackets.js"></script>
+    <script>
+    var editor = CodeMirror.fromTextArea(document.getElementById("fcode"), {
+      lineNumbers: true,
+      mode: "text/x-csrc",
+      matchBrackets: true,
+      autoCloseBrackets: true,
+      scrollPastEnd: true,
+      theme: "3024-night"
+    });
+        editor.setSize(1200, 300);
 
+</script>
 </body>
